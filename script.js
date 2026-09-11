@@ -1,4 +1,4 @@
-  const feeds = [
+const feeds = [
   {
     name: "PUBG MOBILE",
     query: "PUBG Mobile esports game"
@@ -191,4 +191,109 @@ function displayNews(news) {
 
 
 // ===============================
-// P
+// PENCARIAN
+// ===============================
+
+async function searchContent() {
+
+  const keyword =
+    searchInput.value
+      .trim()
+      .toLowerCase();
+
+  if (!keyword) {
+
+    loadNews();
+
+    return;
+  }
+
+  newsContainer.innerHTML = `
+    <div class="loading">
+      Mencari berita tentang
+      "${keyword}"...
+    </div>
+  `;
+
+
+  // Cari langsung ke Google News
+  const results =
+    await getNews(
+      keyword + " game esports",
+      keyword.toUpperCase()
+    );
+
+
+  displayNews(results);
+}
+
+
+// ===============================
+// ENTER DI KOLOM PENCARIAN
+// ===============================
+
+searchInput.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Enter") {
+
+      searchContent();
+
+    }
+
+  }
+);
+
+
+// ===============================
+// SEMUA BERITA
+// ===============================
+
+function showAllNews() {
+
+  searchInput.value = "";
+
+  loadNews();
+
+}
+
+
+// ===============================
+// MENU MOBILE
+// ===============================
+
+function toggleMenu() {
+
+  const nav =
+    document.getElementById("navMenu");
+
+  nav.classList.toggle("active");
+
+}
+
+
+// ===============================
+// BERSIHKAN DESKRIPSI
+// ===============================
+
+function cleanText(text) {
+
+  const temp =
+    document.createElement("div");
+
+  temp.innerHTML = text || "";
+
+  return temp.textContent
+    .replace(/\s+/g, " ")
+    .trim()
+    .substring(0, 180);
+
+}
+
+
+// ===============================
+// MULAI
+// ===============================
+
+loadNews();
