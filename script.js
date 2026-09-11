@@ -1,4 +1,4 @@
-const feeds = [
+  const feeds = [
   {
     name: "PUBG MOBILE",
     query: "PUBG Mobile esports game"
@@ -25,7 +25,69 @@ const feeds = [
   }
 ];
 
-const newsContainer = document.getElementById("newsContainer");
+const newsContainer =
+  document.getElementById("newsContainer");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+
+// ===============================
+// AMBIL BERITA
+// ===============================
+
+async function getNews(query, gameName = "") {
+
+  try {
+
+    const rssUrl =
+      "https://news.google.com/rss/search?q=" +
+      encodeURIComponent(query) +
+      "&hl=id&gl=ID&ceid=ID:id";
+
+    const apiUrl =
+      "https://api.rss2json.com/v1/api.json?rss_url=" +
+      encodeURIComponent(rssUrl);
+
+    const response = await fetch(apiUrl);
+
+    const data = await response.json();
+
+    if (data.status !== "ok") {
+      return [];
+    }
+
+    return data.items.slice(0, 5).map(item => ({
+
+      game: gameName || "GAME",
+
+      title: item.title,
+
+      description: cleanText(
+        item.description
+      ),
+
+      link: item.link,
+
+      date: item.pubDate
+
+    }));
+
+  } catch (error) {
+
+    console.log(
+      "Gagal mengambil berita:",
+      error
+    );
+
+    return [];
+  }
+}
+
+
+// ===============================
+// LOAD SEMUA BERITA
+// ===============================
 
 async function loadNews() {
 
@@ -39,65 +101,36 @@ async function loadNews() {
 
   for (const feed of feeds) {
 
-    try {
+    const news = await getNews(
+      feed.query,
+      feed.name
+    );
 
-      const rssUrl =
-        "https://news.google.com/rss/search?q=" +
-        encodeURIComponent(feed.query) +
-        "&hl=id&gl=ID&ceid=ID:id";
-
-      const apiUrl =
-        "https://api.rss2json.com/v1/api.json?rss_url=" +
-        encodeURIComponent(rssUrl);
-
-      const response = await fetch(apiUrl);
-
-      const data = await response.json();
-
-      if (data.status === "ok") {
-
-        data.items.slice(0, 3).forEach(item => {
-
-          allNews.push({
-            game: feed.name,
-            title: item.title,
-            description: cleanText(item.description),
-            link: item.link,
-            date: item.pubDate
-          });
-
-        });
-
-      }
-
-    } catch (error) {
-
-      console.log(
-        "Gagal mengambil berita:",
-        feed.name,
-        error
-      );
-
-    }
-
+    allNews.push(...news);
   }
 
   allNews.sort(
     (a, b) =>
-      new Date(b.date) - new Date(a.date)
+      new Date(b.date) -
+      new Date(a.date)
   );
 
   displayNews(allNews);
-
 }
 
+
+// ===============================
+// TAMPILKAN BERITA
+// ===============================
 
 function displayNews(news) {
 
   if (!news.length) {
 
     newsContainer.innerHTML = `
-      <p>Berita belum berhasil dimuat.</p>
+      <div class="loading">
+        Berita tidak ditemukan.
+      </div>
     `;
 
     return;
@@ -107,17 +140,21 @@ function displayNews(news) {
 
   news.slice(0, 12).forEach(item => {
 
-    const card = document.createElement("article");
+    const card =
+      document.createElement("article");
 
     card.className = "news-card";
 
     card.dataset.search =
-      `${item.game} ${item.title}`.toLowerCase();
+      `${item.game} ${item.title}`
+      .toLowerCase();
 
     card.innerHTML = `
 
       <div class="news-image">
-        <span>${item.game}</span>
+        <span>
+          ${item.game}
+        </span>
       </div>
 
       <div class="news-content">
@@ -150,80 +187,8 @@ function displayNews(news) {
     newsContainer.appendChild(card);
 
   });
-
 }
 
 
-function cleanText(text) {
-
-  const temp = document.createElement("div");
-
-  temp.innerHTML = text || "";
-
-  return temp.textContent
-    .replace(/\s+/g, " ")
-    .trim()
-    .substring(0, 180);
-
-}
-
-
-function toggleMenu() {
-
-  const nav =
-    document.getElementById("navMenu");
-
-  nav.classList.toggle("active");
-
-}
-
-
-function searchContent() {
-
-  const input =
-    document.getElementById("searchInput");
-
-  const keyword =
-    input.value.toLowerCase();
-
-  const cards =
-    document.querySelectorAll(".news-card");
-
-  cards.forEach(card => {
-
-    const text =
-      card.innerText.toLowerCase();
-
-    const data =
-      card.dataset.search || "";
-
-    card.style.display =
-      text.includes(keyword) ||
-      data.includes(keyword)
-        ? ""
-        : "none";
-
-  });
-
-}
-
-
-function showAllNews() {
-
-  document
-    .querySelectorAll(".news-card")
-    .forEach(card => {
-
-      card.style.display = "";
-
-    });
-
-  document.getElementById(
-    "searchInput"
-  ).value = "";
-
-}
-
-
-// Jalankan otomatis saat website dibuka
-loadNews();
+// ===============================
+// P
