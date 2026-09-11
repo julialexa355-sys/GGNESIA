@@ -520,60 +520,63 @@ nav a:hover {
 }
 
 
-/* GAME VARIANTS */
+/* =========================================
+   GAME IMAGE
+   ========================================= */
 
-.game-card.pubg {
+.game-card {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  min-height: 240px;
+}
+
+.game-card::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
   background:
     linear-gradient(
-      135deg,
-      #173247,
-      #28381e
+      to top,
+      rgba(0, 0, 0, 0.90) 0%,
+      rgba(0, 0, 0, 0.35) 55%,
+      rgba(0, 0, 0, 0.05) 100%
     );
+
+  z-index: 0;
+}
+
+.game-card.pubg {
+  background-image:
+    url("https://1.bp.blogspot.com/-5Pac6QAl42g/X2Czl-uMwnI/AAAAAAAABMA/zcz9A2QHm08vbK8NE9qDOcu4UPZR0YYiACNcBGAsYHQ/s1304/pubg-mobile-1.png");
 }
 
 .game-card.ml {
-  background:
-    linear-gradient(
-      135deg,
-      #172e59,
-      #35205b
-    );
+  background-image:
+    url("https://upload.wikimedia.org/wikipedia/commons/1/12/Mobile_Legends_Logo.webp");
 }
 
 .game-card.ff {
-  background:
-    linear-gradient(
-      135deg,
-      #542817,
-      #7b350f
-    );
+  background-image:
+    url("https://cdn.newsroom.gg/medium/000/024/223/8GvrlwQRR3-.png");
 }
 
 .game-card.genshin {
-  background:
-    linear-gradient(
-      135deg,
-      #183c48,
-      #392b5b
-    );
+  background-image:
+    url("https://static.animecorner.me/2021/07/genshin-impact-packshot-01-en-18jun21.jpg");
 }
 
 .game-card.valorant {
-  background:
-    linear-gradient(
-      135deg,
-      #441d2c,
-      #24131d
-    );
+  background-image:
+    url("https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/IN2U44D37FCNVGP4A35WYAOCLI.jpg");
 }
 
 .game-card.dota {
-  background:
-    linear-gradient(
-      135deg,
-      #49201c,
-      #17100f
-    );
+  background-image:
+    url("https://pulsfid.ru/storage/attachments/2026/05/07/13a1b107-3b8b-4e3c-b02c-c2a27d192ae0.jpg");
 }
 
 
