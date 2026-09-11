@@ -1,0 +1,439 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #080a0f;
+  color: #fff;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 70px;
+  padding: 0 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(5, 7, 11, .95);
+  border-bottom: 1px solid #20242d;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.logo span {
+  color: #00e5ff;
+}
+
+nav {
+  display: flex;
+  gap: 25px;
+}
+
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #00e5ff;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  color: white;
+  font-size: 25px;
+}
+
+.hero {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  padding: 80px 8%;
+  background:
+    linear-gradient(90deg, #05070b 15%, rgba(5,7,11,.7), rgba(5,7,11,.1)),
+    radial-gradient(circle at 80% 40%, #004f65, #10131b 50%, #05070b);
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.label,
+.section-title p {
+  color: #00e5ff;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 12px;
+}
+
+.hero h1 {
+  font-size: clamp(45px, 7vw, 85px);
+  line-height: .95;
+  margin-bottom: 25px;
+}
+
+.hero h1 span {
+  color: #00e5ff;
+}
+
+.hero p {
+  color: #b8bec8;
+  line-height: 1.7;
+  max-width: 580px;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 14px 25px;
+  background: #00e5ff;
+  color: #061016;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.search-area {
+  padding: 25px 8%;
+  background: #0d1016;
+}
+
+.search-area input {
+  width: 100%;
+  max-width: 700px;
+  padding: 17px 20px;
+  background: #171b23;
+  border: 1px solid #303640;
+  border-radius: 7px;
+  color: white;
+  outline: none;
+}
+
+.section {
+  padding: 80px 8%;
+}
+
+.dark-section,
+.schedule-section {
+  background: #0d1016;
+}
+
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 35px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+}
+
+.section-title button {
+  background: transparent;
+  border: 1px solid #333944;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 5px;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.news-card {
+  background: #11151d;
+  border: 1px solid #252a34;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.news-card:hover,
+.game-card:hover,
+.team-card:hover {
+  transform: translateY(-5px);
+  border-color: #00e5ff;
+}
+
+.news-image {
+  height: 210px;
+  display: flex;
+  align-items: end;
+  padding: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.pubg {
+  background: linear-gradient(135deg, #142c45, #59632c);
+}
+
+.ml {
+  background: linear-gradient(135deg, #172e55, #4c2868);
+}
+
+.ff {
+  background: linear-gradient(135deg, #3a160f, #913d0e);
+}
+
+.news-content {
+  padding: 22px;
+}
+
+.news-content small {
+  color: #00e5ff;
+}
+
+.news-content h3 {
+  margin: 12px 0;
+  line-height: 1.35;
+}
+
+.news-content p {
+  color: #969eaa;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.game-card {
+  height: 220px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  border-radius: 8px;
+  border: 1px solid #292e38;
+  transition: .3s;
+}
+
+.game-card p {
+  color: #aab1bc;
+  margin-top: 7px;
+}
+
+.pubg-game {
+  background: linear-gradient(135deg, #172b40, #31451d);
+}
+
+.ml-game {
+  background: linear-gradient(135deg, #17274d, #39205a);
+}
+
+.ff-game {
+  background: linear-gradient(135deg, #45180d, #792f0e);
+}
+
+.genshin-game {
+  background: linear-gradient(135deg, #153b49, #315b70);
+}
+
+.valorant-game {
+  background: linear-gradient(135deg, #44151c, #711c28);
+}
+
+.dota-game {
+  background: linear-gradient(135deg, #36130e, #681d16);
+}
+
+.esports-box {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.esports-box > div {
+  padding: 30px;
+  background: #11151d;
+  border: 1px solid #292e38;
+  border-radius: 8px;
+}
+
+.esports-box span {
+  font-size: 35px;
+}
+
+.esports-box h3 {
+  margin: 20px 0 10px;
+}
+
+.esports-box p {
+  color: #969eaa;
+  line-height: 1.5;
+}
+
+.schedule {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.match {
+  display: grid;
+  grid-template-columns: 180px 1fr 100px;
+  align-items: center;
+  padding: 20px;
+  background: #11151d;
+  border: 1px solid #292e38;
+  border-radius: 7px;
+}
+
+.match small,
+.match strong {
+  display: block;
+}
+
+.match small {
+  color: #00e5ff;
+  margin-bottom: 5px;
+}
+
+.teams {
+  color: #d8dce3;
+}
+
+.time {
+  text-align: right;
+  font-weight: bold;
+  color: #00e5ff;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.team-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 25px;
+  background: #11151d;
+  border: 1px solid #292e38;
+  border-radius: 8px;
+  transition: .3s;
+}
+
+.team-logo {
+  width: 55px;
+  height: 55px;
+  display: grid;
+  place-items: center;
+  background: #00e5ff;
+  color: #071017;
+  font-size: 25px;
+  font-weight: 900;
+  border-radius: 50%;
+}
+
+.team-card p {
+  color: #00e5ff;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+footer {
+  padding: 50px 8%;
+  text-align: center;
+  background: #05070b;
+  color: #777f8b;
+}
+
+footer .logo {
+  margin-bottom: 12px;
+}
+
+footer p {
+  margin: 7px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    background: #080a0f;
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav a {
+    padding: 18px 8%;
+    border-bottom: 1px solid #20242d;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+
+  .hero {
+    min-height: 550px;
+    padding: 60px 8%;
+  }
+
+  .news-grid,
+  .game-grid,
+  .esports-box,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 60px 6%;
+  }
+
+  .section-title {
+    align-items: start;
+    gap: 15px;
+  }
+
+  .section-title h2 {
+    font-size: 28px;
+  }
+
+  .match {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .time {
+    text-align: left;
+  }
+  }
