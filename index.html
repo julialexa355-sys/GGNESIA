@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GGNESIA - Dunia Game & Esports Indonesia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">GG<span>NESIA</span></div>
+
+  <nav id="navMenu">
+    <a href="#home">Home</a>
+    <a href="#berita">Berita</a>
+    <a href="#game">Game</a>
+    <a href="#esports">Esports</a>
+    <a href="#jadwal">Jadwal</a>
+    <a href="#tim">Tim & Pemain</a>
+  </nav>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</header>
+
+
+<main>
+
+<section id="home" class="hero">
+  <div class="hero-content">
+    <p class="label">GGNESIA GAMING HUB</p>
+    <h1>DUNIA GAME<br><span>DAN ESPORTS</span></h1>
+    <p>
+      Berita game terbaru, turnamen esports, tim, pemain,
+      jadwal pertandingan dan perkembangan industri game.
+    </p>
+
+    <a href="#berita" class="hero-btn">Jelajahi GGNESIA</a>
+  </div>
+</section>
+
+
+<section class="search-area">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Cari game, berita, tim atau pemain..."
+    onkeyup="searchContent()"
+  >
+</section>
+
+
+<section id="berita" class="section">
+  <div class="section-title">
+    <div>
+      <p>UPDATE TERBARU</p>
+      <h2>Berita Game</h2>
+    </div>
+    <button onclick="showAllNews()">Lihat Semua</button>
+  </div>
+
+  <div class="news-grid" id="newsContainer">
+
+    <article class="news-card" data-search="pubg mobile esports">
+      <div class="news-image pubg">
+        <span>PUBG MOBILE</span>
+      </div>
+      <div class="news-content">
+        <small>ESPORTS • HARI INI</small>
+        <h3>Perkembangan terbaru dunia PUBG Mobile</h3>
+        <p>Berita dan informasi terbaru seputar kompetisi PUBG Mobile.</p>
+      </div>
+    </article>
+
+    <article class="news-card" data-search="mobile legends ml esports">
+      <div class="news-image ml">
+        <span>MOBILE LEGENDS</span>
+      </div>
+      <div class="news-content">
+        <small>ESPORTS • TERBARU</small>
+        <h3>Persaingan tim Mobile Legends semakin ketat</h3>
+        <p>Ikuti perkembangan kompetisi dan tim-tim terbaik.</p>
+      </div>
+    </article>
+
+    <article class="news-card" data-search="free fire esports">
+      <div class="news-image ff">
+        <span>FREE FIRE</span>
+      </div>
+      <div class="news-content">
+        <small>GAME • TERBARU</small>
+        <h3>Update terbaru dunia Free Fire</h3>
+        <p>Informasi terbaru mengenai Free Fire dan esports-nya.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<section id="game" class="section dark-section">
+  <div class="section-title">
+    <div>
+      <p>EXPLORE</p>
+      <h2>Game Populer</h2>
+    </div>
+  </div>
+
+  <div class="game-grid">
+
+    <div class="game-card pubg-game">
+      <h3>PUBG MOBILE</h3>
+      <p>Battle Royale • Esports</p>
+    </div>
+
+    <div class="game-card ml-game">
+      <h3>MOBILE LEGENDS</h3>
+      <p>MOBA • Esports</p>
+    </div>
+
+    <div class="game-card ff-game">
+      <h3>FREE FIRE</h3>
+      <p>Battle Royale • Esports</p>
+    </div>
+
+    <div class="game-card genshin-game">
+      <h3>GENSHIN IMPACT</h3>
+      <p>RPG • Open World</p>
+    </div>
+
+    <div class="game-card valorant-game">
+      <h3>VALORANT</h3>
+      <p>FPS • Esports</p>
+    </div>
+
+    <div class="game-card dota-game">
+      <h3>DOTA 2</h3>
+      <p>MOBA • Esports</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="esports" class="section">
+  <div class="section-title">
+    <div>
+      <p>COMPETITION</p>
+      <h2>Esports</h2>
+    </div>
+  </div>
+
+  <div class="esports-box">
+
+    <div>
+      <span>🏆</span>
+      <h3>Turnamen</h3>
+      <p>Temukan turnamen game yang sedang berlangsung.</p>
+    </div>
+
+    <div>
+      <span>⚔️</span>
+      <h3>Hasil Pertandingan</h3>
+      <p>Lihat hasil pertandingan dan perkembangan kompetisi.</p>
+    </div>
+
+    <div>
+      <span>📊</span>
+      <h3>Klasemen</h3>
+      <p>Ikuti posisi tim favoritmu di setiap kompetisi.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="jadwal" class="section schedule-section">
+  <div class="section-title">
+    <div>
+      <p>UPCOMING MATCH</p>
+      <h2>Jadwal Pertandingan</h2>
+    </div>
+  </div>
+
+  <div class="schedule">
+
+    <div class="match">
+      <div>
+        <small>13 SEP</small>
+        <strong>PUBG MOBILE</strong>
+      </div>
+      <div class="teams">Team Alpha vs Team Beta</div>
+      <div class="time">19:00</div>
+    </div>
+
+    <div class="match">
+      <div>
+        <small>14 SEP</small>
+        <strong>MOBILE LEGENDS</strong>
+      </div>
+      <div class="teams">Indonesia Team vs Rival Team</div>
+      <div class="time">20:00</div>
+    </div>
+
+    <div class="match">
+      <div>
+        <small>15 SEP</small>
+        <strong>FREE FIRE</strong>
+      </div>
+      <div class="teams">Team X vs Team Y</div>
+      <div class="time">18:30</div>
+    </div>
+
+  </div>
+</section>
+
+
+<section id="tim" class="section">
+  <div class="section-title">
+    <div>
+      <p>ESPORTS DATABASE</p>
+      <h2>Tim & Pemain</h2>
+    </div>
+  </div>
+
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-logo">A</div>
+      <div>
+        <h3>TEAM ALPHA</h3>
+        <p>PUBG MOBILE</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-logo">M</div>
+      <div>
+        <h3>TEAM MOBILE</h3>
+        <p>MOBILE LEGENDS</p>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-logo">F</div>
+      <div>
+        <h3>TEAM FIRE</h3>
+        <p>FREE FIRE</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+
+<footer>
+  <div class="logo">GG<span>NESIA</span></div>
+  <p>Portal dunia game dan esports Indonesia.</p>
+  <p>© 2026 GGNESIA</p>
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+        </html>
