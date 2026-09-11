@@ -553,7 +553,13 @@ nav a:hover {
   background-image:
     url("https://1.bp.blogspot.com/-5Pac6QAl42g/X2Czl-uMwnI/AAAAAAAABMA/zcz9A2QHm08vbK8NE9qDOcu4UPZR0YYiACNcBGAsYHQ/s1304/pubg-mobile-1.png");
 }
-
+.news-image.pubg img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: invert(1);
+}
 .game-card.ml {
   background-image:
     url("https://upload.wikimedia.org/wikipedia/commons/1/12/Mobile_Legends_Logo.webp");
