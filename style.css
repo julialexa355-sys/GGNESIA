@@ -566,7 +566,21 @@ nav a:hover {
     alt="Mobile Legends"
   >
 </div>
-  
+  .news-image.ml {
+  height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #07111c;
+  overflow: hidden;
+}
+
+.news-image.ml img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  display: block;
+}
 
 .game-card.ff {
   background-image:
