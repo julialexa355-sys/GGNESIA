@@ -560,10 +560,13 @@ nav a:hover {
   display: block;
   filter: invert(1);
 }
-.game-card.ml {
-  background-image:
-    url("https://upload.wikimedia.org/wikipedia/commons/1/12/Mobile_Legends_Logo.webp");
-}
+<div class="news-image ml">
+  <img
+    src="https://upload.wikimedia.org/wikipedia/en/7/7a/Mobile_Legends_Bang_Bang_logo.png"
+    alt="Mobile Legends"
+  >
+</div>
+  
 
 .game-card.ff {
   background-image:
