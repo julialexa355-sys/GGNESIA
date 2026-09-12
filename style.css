@@ -406,11 +406,16 @@ nav a:hover {
 }
 
 .news-content h3 {
+ .news-content h3 {
   margin-top: 10px;
-
   font-size: 19px;
   line-height: 1.35;
-}
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+ }
 
 .news-content p {
   margin-top: 10px;
