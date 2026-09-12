@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mobile Legends - GGNESIA</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+  <div class="container nav-container">
+
+    <a href="index.html" class="logo">
+      GG<span>NESIA</span>
+    </a>
+
+  </div>
+</header>
+
+<main>
+
+  <section class="section">
+
+    <div class="container">
+
+      <div class="section-title">
+        <div>
+          <p>MOBILE LEGENDS</p>
+          <h2>Berita Terbaru</h2>
+        </div>
+      </div>
+
+      <div class="news-grid" id="mlNews">
+
+        <p>Memuat berita Mobile Legends terbaru...</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+<script>
+
+async function loadMLNews() {
+
+  const container = document.getElementById("mlNews");
+
+  const rssUrl =
+    "https://news.google.com/rss/search?q=" +
+    encodeURIComponent('"Mobile Legends" esports') +
+    "&hl=id&gl=ID&ceid=ID:id";
+
+  const apiUrl =
+    "https://api.rss2json.com/v1/api.json?rss_url=" +
+    encodeURIComponent(rssUrl);
+
+  try {
+
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    container.innerHTML = "";
+
+    data.items.slice(0, 9).forEach(item => {
+
+      const card = document.createElement("article");
+
+      card.className = "news-card";
+
+      card.innerHTML = `
+
+        <div class="news-image ml">
+          <span>MOBILE LEGENDS</span>
+        </div>
+
+        <div class="news-content">
+
+          <small>
+            MOBILE LEGENDS • BERITA TERBARU
+          </small>
+
+          <h3>
+            ${item.title}
+          </h3>
+
+          <p>
+            Berita terbaru seputar Mobile Legends,
+            esports, turnamen dan perkembangan game.
+          </p>
+
+          <a
+            href="${item.link}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="read-news"
+          >
+            Baca berita →
+          </a>
+
+        </div>
+
+      `;
+
+      container.appendChild(card);
+
+    });
+
+  } catch (error) {
+
+    container.innerHTML = `
+      <p>Berita Mobile Legends belum berhasil dimuat.</p>
+    `;
+
+  }
+
+}
+
+loadMLNews();
+
+</script>
+
+</body>
+</html>
