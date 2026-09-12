@@ -968,4 +968,12 @@ nav a:hover {
     min-height: 175px;
   }
 
+  } @media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr !important;
   }
+
+  .news-card {
+    width: 100% !important;
+  }
+}
