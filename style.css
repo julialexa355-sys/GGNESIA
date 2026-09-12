@@ -581,7 +581,12 @@ nav a:hover {
   object-fit: contain;
   display: block;
 }
-
+.news-image.ml img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block;
+}
 .game-card.ff {
   background-image:
     url("https://cdn.newsroom.gg/medium/000/024/223/8GvrlwQRR3-.png");
